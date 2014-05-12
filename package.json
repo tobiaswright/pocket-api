@@ -1,0 +1,13 @@
+{
+  "name": "pocket-api",
+  "version": "0.0.0",
+  "description": "Node module for Pocket API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "author": "Tobias Wright",
+  "license": "BSD",
+  "gitHead": "e79f6328756f141eb6d0d8b6b73fa4989d5ddf68"
+}
