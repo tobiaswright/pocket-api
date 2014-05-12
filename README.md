@@ -24,21 +24,18 @@ pocket.getRequestToken( consumer_key , function( data ) {
 });
 
 pocket.getAccessToken( consumer_key , request_token, function( data ) {
-	res.jsonp( data );
+	console.log( data );
 	//returns username and access_token
 });
-
 
 pocket.getArticles( consumer_key , access_token, function( data ) {
 	console.log( data );
 	//returns articles
 });
 
-
 pocket.addArticles( url-to-add, consumer_key , access_token, function( data ) {
 	console.log( data );
 });
-
 
 pocket.modifyArticles( actions, consumer_key , access_token, function( data ) {
 	console.log( data )
