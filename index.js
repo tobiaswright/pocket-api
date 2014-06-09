@@ -50,7 +50,7 @@ var getArticles = function(key, accessToken, callback){
 	}
 
 	request.post(options, function (error, response, body) {
-		callback(JSON.parse(body));
+		completePost(error, response, body, callback);
 	});
 
 }
@@ -64,7 +64,7 @@ var addArticles = function(addurl, key, accessToken, callback){
 	}
 
 	request.post(options, function (error, response, body) {
-		callback(JSON.parse(body));
+		completePost(error, response, body, callback);
 	});
 
 }
@@ -80,9 +80,19 @@ var modifyArticles = function(actions, key, accessToken, callback){
 	}
 
 	request.post(options, function (error, response, body) {
-		callback(JSON.parse(body));
+		completePost(error, response, body, callback);
 	});
 
+}
+
+function completePost(error, response, body, callback) {
+	if (error) {
+		callback(error, null);
+	} else if (response.headers.hasOwnProperty('x-error')) {
+		callback(response.headers['x-error'], null);
+	} else {
+		callback(null, JSON.parse(body));
+	}
 }
 
 module.exports = {
