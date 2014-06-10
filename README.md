@@ -28,16 +28,16 @@ pocket.getAccessToken( consumer_key , request_token, function( data ) {
 	//returns username and access_token
 });
 
-pocket.getArticles( consumer_key , access_token, function( data ) {
-	console.log( data );
+pocket.getArticles( consumer_key , access_token, function( error, data ) {
+	console.log( error, data );
 	//returns articles
 });
 
-pocket.addArticles( url-to-add, consumer_key , access_token, function( data ) {
-	console.log( data );
+pocket.addArticles( url-to-add, consumer_key , access_token, function( error, data ) {
+	console.log( error, data );
 });
 
-pocket.modifyArticles( actions, consumer_key , access_token, function( data ) {
-	console.log( data )
+pocket.modifyArticles( actions, consumer_key , access_token, function( error, data ) {
+	console.log( error, data )
 });
 ```
