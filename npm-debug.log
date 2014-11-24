@@ -1,0 +1,105 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/Users/twright4/.nvm/v0.10.33/bin/node',
+1 verbose cli   '/Users/twright4/.nvm/v0.10.33/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose publish [ '.' ]
+5 verbose cache add [ '.', null ]
+6 verbose cache add name=undefined spec="." args=[".",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: '.',
+7 verbose parsed url   path: '.',
+7 verbose parsed url   href: '.' }
+8 silly lockFile 3a52ce78- .
+9 verbose lock . /Users/twright4/.npm/3a52ce78-.lock
+10 verbose tar pack [ '/Users/twright4/.npm/pocket-api/0.2.2/package.tgz', '.' ]
+11 verbose tarball /Users/twright4/.npm/pocket-api/0.2.2/package.tgz
+12 verbose folder .
+13 info prepublish pocket-api@0.2.2
+14 silly lockFile 1f1177db-tar tar://.
+15 verbose lock tar://. /Users/twright4/.npm/1f1177db-tar.lock
+16 silly lockFile c583015b-npm-pocket-api-0-2-2-package-tgz tar:///Users/twright4/.npm/pocket-api/0.2.2/package.tgz
+17 verbose lock tar:///Users/twright4/.npm/pocket-api/0.2.2/package.tgz /Users/twright4/.npm/c583015b-npm-pocket-api-0-2-2-package-tgz.lock
+18 silly lockFile 1f1177db-tar tar://.
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile c583015b-npm-pocket-api-0-2-2-package-tgz tar:///Users/twright4/.npm/pocket-api/0.2.2/package.tgz
+21 silly lockFile c583015b-npm-pocket-api-0-2-2-package-tgz tar:///Users/twright4/.npm/pocket-api/0.2.2/package.tgz
+22 silly lockFile 5eae9368-ht4-npm-pocket-api-0-2-2-package /Users/twright4/.npm/pocket-api/0.2.2/package
+23 verbose lock /Users/twright4/.npm/pocket-api/0.2.2/package /Users/twright4/.npm/5eae9368-ht4-npm-pocket-api-0-2-2-package.lock
+24 silly lockFile 5eae9368-ht4-npm-pocket-api-0-2-2-package /Users/twright4/.npm/pocket-api/0.2.2/package
+25 silly lockFile 5eae9368-ht4-npm-pocket-api-0-2-2-package /Users/twright4/.npm/pocket-api/0.2.2/package
+26 silly lockFile 3a52ce78- .
+27 silly lockFile 3a52ce78- .
+28 silly publish { name: 'pocket-api',
+28 silly publish   version: '0.2.2',
+28 silly publish   description: 'Node module for Pocket API',
+28 silly publish   main: 'index.js',
+28 silly publish   dependencies: { request: '~2.34.0' },
+28 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+28 silly publish   repository:
+28 silly publish    { type: 'git',
+28 silly publish      url: 'https://github.com/tobiaswright/pocket-api' },
+28 silly publish   author: { name: 'Tobias Wright' },
+28 silly publish   license: 'BSD',
+28 silly publish   gitHead: 'e79f6328756f141eb6d0d8b6b73fa4989d5ddf68',
+28 silly publish   readme: 'Node for Pocket\n===============\n\nNode npm for the Pocket API\n\n## Install\n\nFirst, install the pocket api with npm.\n\n`npm install pocket-api`\n\n## How to use\n\nPlease review the [pocket API](http://getpocket.com/developer/docs/overview) for expected inputs and outputs and [authentication](http://getpocket.com/developer/docs/authentication) flow. Specifically Step 3, where you need to redirect the user to Pocket for authorization, which is not covered in this npm.\n\n```\nvar pocket = require(\'pocket-api\')\n\nvar consumer_key = \'your consumer_key\';\n\npocket.getRequestToken( consumer_key , function( data ) {\n\tconsole.log( data );\n\t//returns request_token\n});\n\npocket.getAccessToken( consumer_key , request_token, function( data ) {\n\tconsole.log( data );\n\t//returns username and access_token\n});\n\npocket.getArticles( consumer_key , access_token, function( error, data ) {\n\tconsole.log( error, data );\n\t//returns articles\n});\n\npocket.addArticles( url-to-add, consumer_key , access_token, function( error, data ) {\n\tconsole.log( error, data );\n});\n\npocket.modifyArticles( actions, consumer_key , access_token, function( error, data ) {\n\tconsole.log( error, data )\n});\n```\n',
+28 silly publish   readmeFilename: 'README.md',
+28 silly publish   bugs: { url: 'https://github.com/tobiaswright/pocket-api/issues' },
+28 silly publish   homepage: 'https://github.com/tobiaswright/pocket-api',
+28 silly publish   _id: 'pocket-api@0.2.2',
+28 silly publish   _shasum: '546eb52acbd4c1b6ef4cd9ec14557d4e122d32c9',
+28 silly publish   _from: '.' }
+29 verbose request where is /pocket-api
+30 verbose request registry https://condenast.registry.nodejitsu.com/
+31 verbose request id f009a6fd0c410ed2
+32 verbose url raw /pocket-api
+33 verbose url resolving [ 'https://condenast.registry.nodejitsu.com/', './pocket-api' ]
+34 verbose url resolved https://condenast.registry.nodejitsu.com/pocket-api
+35 verbose request where is https://condenast.registry.nodejitsu.com/pocket-api
+36 info trying registry request attempt 1 at 23:45:58
+37 http PUT https://condenast.registry.nodejitsu.com/pocket-api
+38 http 403 https://condenast.registry.nodejitsu.com/pocket-api
+39 verbose headers { date: 'Mon, 24 Nov 2014 04:46:00 GMT',
+39 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+39 verbose headers   'content-type': 'application/json',
+39 verbose headers   'cache-control': 'max-age=60',
+39 verbose headers   'content-length': '3520',
+39 verbose headers   'accept-ranges': 'bytes',
+39 verbose headers   via: '1.1 varnish',
+39 verbose headers   'x-served-by': 'cache-atl6227-ATL',
+39 verbose headers   'x-cache': 'MISS',
+39 verbose headers   'x-cache-hits': '0',
+39 verbose headers   'x-timer': 'S1416804359.984858,VS0,VE285',
+39 verbose headers   connection: 'close' }
+40 error publish Failed PUT 403
+41 error Error: forbidden cannot modify pre-existing version: 0.2.2
+41 error old={"name":"pocket-api","version":"0.2.2","description":"Node module for Pocket API","main":"index.js","dependencies":{"request":"~2.34.0"},"scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"repository":{"type":"git","url":"https://github.com/tobiaswright/pocket-api"},"author":{"name":"Tobias Wright"},"license":"BSD","gitHead":"e79f6328756f141eb6d0d8b6b73fa4989d5ddf68","bugs":{"url":"https://github.com/tobiaswright/pocket-api/issues"},"_id":"pocket-api@0.2.2","dist":{"shasum":"d4568a9349e20d445d2faaf55f0d7afe66e9ed1f","tarball":"http://registry.npmjs.org/pocket-api/-/pocket-api-0.2.2.tgz"},"_from":".","_npmVersion":"1.2.25","_npmUser":{"name":"tobiaswright","email":"tobias.wright@gmail.com"},"maintainers":[{"name":"tobiaswright","email":"tobias.wright@gmail.com"}]}
+41 error new={"name":"pocket-api","version":"0.2.2","description":"Node module for Pocket API","main":"index.js","dependencies":{"request":"~2.34.0"},"scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"repository":{"type":"git","url":"https://github.com/tobiaswright/pocket-api"},"author":{"name":"Tobias Wright"},"license":"BSD","gitHead":"e79f6328756f141eb6d0d8b6b73fa4989d5ddf68","readme":"Node for Pocket\u000a===============\u000a\u000aNode npm for the Pocket API\u000a\u000a## Install\u000a\u000aFirst, install the pocket api with npm.\u000a\u000a`npm install pocket-api`\u000a\u000a## How to use\u000a\u000aPlease review the [pocket API](http://getpocket.com/developer/docs/overview) for expected inputs and outputs and [authentication](http://getpocket.com/developer/docs/authentication) flow. Specifically Step 3, where you need to redirect the user to Pocket for authorization, which is not covered in this npm.\u000a\u000a```\u000avar pocket = require('pocket-api')\u000a\u000avar consumer_key = 'your consumer_key';\u000a\u000apocket.getRequestToken( consumer_key , function( data ) {\u000a\u0009console.log( data );\u000a\u0009//returns request_token\u000a});\u000a\u000apocket.getAccessToken( consumer_key , request_token, function( data ) {\u000a\u0009console.log( data );\u000a\u0009//returns username and access_token\u000a});\u000a\u000apocket.getArticles( consumer_key , access_token, function( error, data ) {\u000a\u0009console.log( error, data );\u000a\u0009//returns articles\u000a});\u000a\u000apocket.addArticles( url-to-add, consumer_key , access_token, function( error, data ) {\u000a\u0009console.log( error, data );\u000a});\u000a\u000apocket.modifyArticles( actions, consumer_key , access_token, function( error, data ) {\u000a\u0009console.log( error, data )\u000a});\u000a```\u000a","readmeFilename":"README.md","bugs":{"url":"https://github.com/tobiaswright/pocket-api/issues"},"homepage":"https://github.com/tobiaswright/pocket-api","_id":"pocket-api@0.2.2","_shasum":"546eb52acbd4c1b6ef4cd9ec14557d4e122d32c9","_from":".","_npmVersion":"1.4.28","_npmUser":{"name":"tobiaswright","email":"tobias.wright@gmail.com"},"maintainers":[{"name":"tobiaswright","email":"tobias.wright@gmail.com"}],"dist":{"shasum":"546eb52acbd4c1b6ef4cd9ec14557d4e122d32c9","tarball":"http://condenast.registry.nodejitsu.com/pocket-api/-/pocket-api-0.2.2.tgz"}}: pocket-api
+41 error     at RegClient.<anonymous> (/Users/twright4/.nvm/v0.10.33/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:308:14)
+41 error     at Request._callback (/Users/twright4/.nvm/v0.10.33/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:246:65)
+41 error     at Request.self.callback (/Users/twright4/.nvm/v0.10.33/lib/node_modules/npm/node_modules/request/request.js:236:22)
+41 error     at Request.emit (events.js:98:17)
+41 error     at Request.<anonymous> (/Users/twright4/.nvm/v0.10.33/lib/node_modules/npm/node_modules/request/request.js:1142:14)
+41 error     at Request.emit (events.js:117:20)
+41 error     at IncomingMessage.<anonymous> (/Users/twright4/.nvm/v0.10.33/lib/node_modules/npm/node_modules/request/request.js:1096:12)
+41 error     at IncomingMessage.emit (events.js:117:20)
+41 error     at _stream_readable.js:943:16
+41 error     at process._tickCallback (node.js:419:13)
+42 error If you need help, you may report this *entire* log,
+42 error including the npm and node versions, at:
+42 error     <http://github.com/npm/npm/issues>
+43 error System Darwin 13.4.0
+44 error command "/Users/twright4/.nvm/v0.10.33/bin/node" "/Users/twright4/.nvm/v0.10.33/bin/npm" "publish"
+45 error cwd /Users/twright4/Prl/pocket-api
+46 error node -v v0.10.33
+47 error npm -v 1.4.28
+48 verbose exit [ 1, true ]
