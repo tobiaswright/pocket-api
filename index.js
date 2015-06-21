@@ -41,13 +41,18 @@ var getAccessToken = function(key, requestToken, callback){
 
 }
 
-var getArticles = function(key, accessToken, callback){
+var getArticles = function(query, key, accessToken, callback){
 
 	var options = {
 		headers: config.headers,
 		url: config.pocketUrl.get,
 		body: "consumer_key="+key+"&access_token="+accessToken
 	}
+
+        query = query || {};
+        for (var i in query) {
+            options.body += '&' + i + '=' + query[i];
+        }
 
 	request.post(options, function (error, response, body) {
 		completePost(error, response, body, callback);
