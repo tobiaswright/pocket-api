@@ -11,33 +11,43 @@ First, install the pocket api with npm.
 
 ## How to use
 
-Please review the [pocket API](http://getpocket.com/developer/docs/overview) for expected inputs and outputs and [authentication](http://getpocket.com/developer/docs/authentication) flow. Specifically Step 3, where you need to redirect the user to Pocket for authorization, which is not covered in this npm.
+Please review the [pocket API](http://getpocket.com/developer/docs/overview) for expected inputs and outputs and [authentication](http://getpocket.com/developer/docs/authentication) flow.
 
 ```
 var pocket = require('pocket-api')
 
 var consumer_key = 'your consumer_key';
+var redirect_uri = 'your redirect_uri'
 
-pocket.getRequestToken( consumer_key , function( data ) {
-	console.log( data );
-	//returns request_token
+params = {
+	consumer_key: consumer_key,
+	redirect_uri: redirect_uri
+}
+pocket.getRequestToken(err, params, function(err, request_token){
+	console.log(request_token);
+	params.request_token = request_token;
 });
 
-pocket.getAccessToken( consumer_key , request_token, function( data ) {
-	console.log( data );
+pocket.generateURL(err, params, function(err, url){
+	//send user to this url
+})
+
+pocket.getAccessToken(err, params, function(data){
+	console.log(data);
+	params.access_token = data.access_token;
 	//returns username and access_token
 });
 
-pocket.getArticles( consumer_key , access_token, function( error, data ) {
-	console.log( error, data );
+pocket.getArticles(err, params, function(err, data){
 	//returns articles
 });
 
-pocket.addArticles( url-to-add, consumer_key , access_token, function( error, data ) {
-	console.log( error, data );
+add to params: {url, tweet_id, tags}
+pocket.addArticles(err, params, function(err, data){
 });
 
-pocket.modifyArticles( actions, consumer_key , access_token, function( error, data ) {
-	console.log( error, data )
+add to params: {actions}
+pocket.modifyArticles(err, params, function(err, data) {
 });
+
 ```
