@@ -4,6 +4,7 @@ var config = {
 	pocketUrl: {
 		request : "https://getpocket.com/v3/oauth/request",
 		authorize : "https://getpocket.com/v3/oauth/authorize",
+		userAuthorize: "https://getpocket.com/auth/authorize",
 		get: "https://getpocket.com/v3/get",
 		add: "https://getpocket.com/v3/add",
 		modify: "https://getpocket.com/v3/send"
@@ -14,91 +15,78 @@ var config = {
 	}
 }
 
-var getRequestToken = function(key, callback) {
+var pocket = {};
 
+pocket.getRequestToken = function(err, params, callback){
 	var options = {
 		headers: config.headers,
-		body: "consumer_key="+key+"&redirect_uri=pocketapp1234:authorizationFinished",
+		body: "consumer_key=" + params.consumer_key + "&redirect_uri=" + params.redirect_uri,
 		url: config.pocketUrl.request
 	}
-
-	request.post(options, function (error, response, body) {
-		callback(JSON.parse(body));
+	request.post(options, function(err, response, body){
+		callback(err, JSON.parse(body));
 	});
 }
 
-var getAccessToken = function(key, requestToken, callback){
+pocket.generateURL = function(err, params, callback){
+	var queryParams = "?request_token=" + params.request_token + "&redirect_uri=" + params.redirect_uri
+	var url = config.pocketUrl.userAuthorize + queryParams;
+	callback(err, url);
+}
 
+pocket.getAccessToken = function(err, params, callback){
 	var options = {
 		headers: config.headers,
 		url: config.pocketUrl.authorize,
-		body: "consumer_key="+key+"&code="+requestToken+"&redirect_uri=pocketapp1234:authorizationFinished"
+		body: "consumer_key=" + params.consumer_key + "&code=" + params.request_token
 	}
-
-	request.post(options, function (error, response, body) {
-		callback(JSON.parse(body));
+	request.post(options, function (err, response, body) {
+		callback(err, JSON.parse(body));
 	});
-
 }
 
-var getArticles = function(key, accessToken, callback){
-
+pocket.getArticles = function(err, params, callback){
 	var options = {
 		headers: config.headers,
 		url: config.pocketUrl.get,
-		body: "consumer_key="+key+"&access_token="+accessToken
+		body: "consumer_key=" + params.key + "&access_token=" + params.access_token
 	}
-
-	request.post(options, function (error, response, body) {
-		completePost(error, response, body, callback);
+	request.post(options, function (err, response, body) {
+		completePost(err, response, body, callback);
 	});
-
 }
 
-var addArticles = function(addurl, key, accessToken, callback){
-
+pocket.addArticles = function(err, params, callback){
 	var options = {
 		headers: config.headers,
 		url: config.pocketUrl.add,
-		body: "url="+addurl+"&consumer_key="+key+"&access_token="+accessToken
+		body: "url=" + params.url + "&consumer_key=" + params.consumer_key + "&access_token=" + params.access_token + "&tweet_id=" + params.tweet_id + ((params.tags) ?("&tags=" + params.tags):'')
 	}
-
-	request.post(options, function (error, response, body) {
-		completePost(error, response, body, callback);
+	request.post(options, function (err, response, body) {
+		completePost(err, response, body, callback);
 	});
-
 }
 
-var modifyArticles = function(actions, key, accessToken, callback){
-
+pocket.modifyArticles = function(err, params, callback){
 	actions = JSON.stringify(actions);
-
 	var options = {
 		headers: config.headers,
 		url: config.pocketUrl.modify,
-		body: "actions="+encodeURIComponent(actions)+"&consumer_key="+key+"&access_token="+accessToken
+		body: "actions=" + encodeURIComponent(params.actions) + "&consumer_key=" + params.consumer_key + "&access_token=" + params.access_token
 	}
-
-	request.post(options, function (error, response, body) {
-		completePost(error, response, body, callback);
+	request.post(options, function (err, response, body) {
+		completePost(err, response, body, callback);
 	});
-
 }
 
-function completePost(error, response, body, callback) {
-	if (error) {
-		callback(error, null);
+var completePost = function(err, response, body, callback) {
+	if (err) {
+		callback(err, null);
 	} else if (response.headers.hasOwnProperty('x-error')) {
 		callback(response.headers['x-error'], null);
 	} else {
-		callback(null, JSON.parse(body));
+		callback(err, JSON.parse(body));
 	}
 }
 
-module.exports = {
-	getRequestToken: getRequestToken,
-	getAccessToken: getAccessToken,
-	getArticles: getArticles,
-	addArticles: addArticles,
-	modifyArticles: modifyArticles
-}
+module.exports = pocket;
