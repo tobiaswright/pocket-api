@@ -23,6 +23,9 @@ var getRequestToken = function(key, callback) {
 	}
 
 	request.post(options, function (error, response, body) {
+                if (error || !body) {
+                    callback(null);
+                }
 		callback(JSON.parse(body));
 	});
 }
@@ -36,6 +39,9 @@ var getAccessToken = function(key, requestToken, callback){
 	}
 
 	request.post(options, function (error, response, body) {
+                if (error || !body) {
+                    callback(null);
+                }
 		callback(JSON.parse(body));
 	});
 
