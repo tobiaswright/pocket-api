@@ -26,7 +26,11 @@ var getRequestToken = function(key, callback) {
                 if (error || !body) {
                     callback(null);
                 }
-		callback(JSON.parse(body));
+		try {
+		    callback(JSON.parse(body));
+		} catch (e) {
+		    callback(null);
+		}
 	});
 }
 
@@ -42,7 +46,11 @@ var getAccessToken = function(key, requestToken, callback){
                 if (error || !body) {
                     callback(null);
                 }
-		callback(JSON.parse(body));
+		try {
+		    callback(JSON.parse(body));
+		} catch (e) {
+		    callback(null);
+		}
 	});
 
 }
