@@ -1,10 +1,10 @@
 {
   "name": "pocket-api",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Node module for Pocket API",
   "main": "index.js",
-  "dependencies" : {
-    "request": "~2.34.0"
+  "dependencies": {
+    "request": "2.88.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
