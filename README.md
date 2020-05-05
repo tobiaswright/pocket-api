@@ -1,3 +1,5 @@
+[![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
+
 Node for Pocket
 ===============
 
@@ -13,10 +15,21 @@ First, install the pocket api with npm.
 
 Please review the [pocket API](http://getpocket.com/developer/docs/overview) for expected inputs and outputs and [authentication](http://getpocket.com/developer/docs/authentication) flow. Specifically Step 3, where you need to redirect the user to Pocket for authorization, which is not covered in this npm.
 
-```
-var pocket = require('pocket-api')
+***Version ^3.0 is a breaking change***
 
-var consumer_key = 'your consumer_key';
+```
+let pocket = require('pocket-api')
+
+let consumer_key = 'your consumer_key';
+
+let pocket = new getPocket(consumer_key);
+
+//returns request_token
+pocket.getRequestToken().then(reponse => console.log(response))
+
+//sets request_token
+pocket.setRequestToken(request_token)
+
 
 pocket.getRequestToken( consumer_key , function( data ) {
 	console.log( data );
