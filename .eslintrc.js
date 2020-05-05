@@ -15,6 +15,8 @@ module.exports = {
     },
     "extends": "standard",
     "rules": {
-        allowIndentationTabs: true
+        "indent": [2, "tab"],
+        "no-tabs": 0,
+        'camelcase': 'off',
     }
 };
