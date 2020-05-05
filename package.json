@@ -1,13 +1,14 @@
 {
   "name": "pocket-api",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "description": "Node module for Pocket API",
   "main": "index.js",
   "dependencies": {
-    "request": "2.88.2"
+    "got": "^11.0.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --max-warnings=0 ./*.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   },
   "author": "Tobias Wright",
   "license": "BSD",
-  "gitHead": "e79f6328756f141eb6d0d8b6b73fa4989d5ddf68"
+  "gitHead": "e79f6328756f141eb6d0d8b6b73fa4989d5ddf68",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
 }
