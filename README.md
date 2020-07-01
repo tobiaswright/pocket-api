@@ -15,7 +15,7 @@ First, install the pocket api with npm.
 
 Please review the [Pocket API](http://getpocket.com/developer/docs/overview) for expected inputs and outputs and [authentication](http://getpocket.com/developer/docs/authentication) flow. Specifically Step 3, where you need to redirect the user to Pocket for authorization, which is not covered in this npm.
 
-***Version ^3.0 is a breaking change***
+***Version ^0.3.0 is a breaking change***
 
 ```
 let pocket = require('pocket-api')
