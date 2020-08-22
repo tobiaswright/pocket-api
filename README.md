@@ -25,7 +25,7 @@ let consumer_key = 'your consumer_key';
 let pocket = new getPocket(consumer_key);
 
 pocket.getRequestToken()
-.then(reponse => {
+.then(response => {
 	console.log(response)
 	//returns request_token
 })
