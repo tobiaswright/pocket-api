@@ -37,7 +37,7 @@ pocket.getRequestToken()
 
 pocket.getAccessToken()
 .then(response => {
-	console.log(repsonse);
+	console.log(response);
 	// returns access token
 });
 
