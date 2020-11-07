@@ -18,7 +18,7 @@ Please review the [Pocket API](http://getpocket.com/developer/docs/overview) for
 ***Version ^0.3.0 is a breaking change***
 
 ```
-let pocket = require('pocket-api')
+let getPocket = require('pocket-api')
 
 let consumer_key = 'your consumer_key';
 
