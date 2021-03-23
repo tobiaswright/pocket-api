@@ -57,12 +57,12 @@ const PocketAPI = class {
 			throw new Error(e)
 		}
 
+		token = JSON.parse(response.body)
+		this.request_token = token.code;
+
 		if (callback) {
-			token = JSON.parse(response.body)
 			return callback(token.code)
 		}
-
-		token = JSON.parse(response.body)
 		return token.code
 	}
 
@@ -87,14 +87,12 @@ const PocketAPI = class {
 			throw new Error(e)
 		}
 
+		token = JSON.parse(response.body)
+		this.access_token = token.access_token
+
 		if (callback) {
-			token = JSON.parse(response.body)
-			this.access_token = token.code
 			return callback(token)
 		}
-
-		token = JSON.parse(response.body)
-		this.access_token = token.code
 		return token
 	}
 
