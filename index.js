@@ -1,8 +1,9 @@
 const got = require('got')
 
 const PocketAPI = class {
-	constructor (consumer_key) {
+	constructor (consumer_key, redirect_uri = 'pocketapp1234:authorizationFinished') {
 		this.consumer_key = consumer_key
+		this.redirect_uri = redirect_uri
 		this.config = {
 			pocketUrl: {
 				request: 'https://getpocket.com/v3/oauth/request',
@@ -45,7 +46,7 @@ const PocketAPI = class {
 		let token
 		const values = {
 			consumer_key: this.consumer_key,
-			redirect_uri: 'pocketapp1234:authorizationFinished'
+			redirect_uri: this.redirect_uri,
 		}
 
 		const options = this.setOptions(values, this.config.pocketUrl.request)
@@ -103,7 +104,6 @@ const PocketAPI = class {
 		const access = {
 			consumer_key: this.consumer_key,
 			access_token: this.access_token,
-			redirect_uri: 'pocketapp1234:authorizationFinished'
 		}
 
 		const values = { ...access, ...params }
