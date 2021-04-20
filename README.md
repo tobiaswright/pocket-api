@@ -31,7 +31,7 @@ pocket.getRequestToken()
 	//returns request_token
 })
 
-// Once you have you have recieved you request token, you have to send you user to the getPocket site
+// Once you have you have received you request token, you have to send you user to the getPocket site
 // It must also include a redirect URL, example:
 // https://getpocket.com/auth/authorize?request_token=YOUR_REQUEST_TOKEN&redirect_uri=YOUR_REDIRECT_URI
 // Please refer to the getPocket API site
@@ -60,9 +60,10 @@ pocket.modifyArticles(actions_array)
 	console.log(response);
 	//Returns success
 })
-
 ```
-The below methods set the access token and request token respectivily
+
+The below methods set the access token and request token respectively
+
 ```
 //sets request_token
 pocket.setRequestToken(request_token)
@@ -70,6 +71,7 @@ pocket.setRequestToken(request_token)
 //sets access_token
 pocket.setAccessToken(access_token)
 ```
+
 Finally, the API does still support callbacks, it is depreciated and will be removed in a future release.
 
 Example:
