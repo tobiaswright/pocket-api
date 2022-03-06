@@ -21,7 +21,7 @@ Please review the [Pocket API](http://getpocket.com/developer/docs/overview) for
 let getPocket = require('pocket-api')
 
 let consumer_key = 'your consumer_key';
-let consumer_key = 'your redirect_uri';  // eg. 'localhost:8000/redirect'
+let redirect_uri = 'your redirect_uri';  // eg. 'localhost:8000/redirect'
 
 let pocket = new getPocket(consumer_key, redirect_uri);
 
