@@ -33,7 +33,6 @@ const PocketAPI = class {
 			body: JSON.stringify(values),
 			url: endpoint,
 			method: method,
-			responseType: 'json'
 		}
 	}
 
