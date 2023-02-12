@@ -4,7 +4,7 @@
   "description": "Node module for Pocket API",
   "main": "index.js",
   "dependencies": {
-    "got": "^11.0.2"
+    "got": "^12.5.3"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
