@@ -25,41 +25,27 @@ let redirect_uri = 'your redirect_uri';  // eg. 'localhost:8000/redirect'
 
 let pocket = new getPocket(consumer_key, redirect_uri);
 
-pocket.getRequestToken()
-.then(response => {
-	console.log(response)
-	//returns request_token
-})
+
+//returns request_token
+let response = await pocket.getRequestToken()
 
 // Once you have you have received you request token, you have to send you user to the getPocket site
 // It must also include a redirect URL, example:
 // https://getpocket.com/auth/authorize?request_token=YOUR_REQUEST_TOKEN&redirect_uri=YOUR_REDIRECT_URI
 // Please refer to the getPocket API site
 
-pocket.getAccessToken()
-.then(response => {
-	console.log(response);
-	// returns access token
-});
+// returns access token
+let response = await pocket.getAccessToken()
 
-pocket.getArticles(parameter_object)
-.then(response => {
-	console.log(response);
-	//Returns articles
-});
+//returns articles
+let response = await pocket.getArticles(parameter_object)
 
-pocket.addArticles(add_object)
-.then(response => {
-	console.log(response)
-	//Returns success
-});
+//returns success
+let response = await pocket.addArticles(add_object)
 
-// Modify a URL
-pocket.modifyArticles(actions_array)
-.then(response => {
-	console.log(response);
-	//Returns success
-})
+// modify a URL, returns success
+let response = await pocket.modifyArticles(actions_array)
+
 ```
 
 The below methods set the access token and request token respectively
